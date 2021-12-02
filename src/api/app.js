@@ -5,6 +5,9 @@ const app = express();
 const userRoutes = require('./routes/User');
 const recipeRoutes = require('./routes/Recipe');
 const authRoutes = require('./routes/Auth');
+
+app.use(express.json());
+app.use('/images', express.static(path.join(__dirname, '..', 'uploads')));
 app.use(session({ secret: '@TRYBE_SESSION', resave: false, saveUninitialized: true }));
 app.use(userRoutes);
 app.use(recipeRoutes);
