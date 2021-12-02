@@ -1,7 +1,7 @@
 const express = require('express');
 const session = require('express-session');
-const { SESSION_TOKEN } = require('../config');
 const path = require('path');
+const { SESSION_TOKEN } = require('../config');
 
 const app = express();
 const userRoutes = require('./routes/User');
