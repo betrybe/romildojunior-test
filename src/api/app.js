@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const { SESSION_TOKEN } = require('../config');
 
 const app = express();
 const userRoutes = require('./routes/User');
@@ -8,7 +9,7 @@ const authRoutes = require('./routes/Auth');
 
 app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, '..', 'uploads')));
-app.use(session({ secret: '@TRYBE_SESSION', resave: false, saveUninitialized: true }));
+app.use(session({ secret: SESSION_TOKEN, resave: false, saveUninitialized: true }));
 app.use(userRoutes);
 app.use(recipeRoutes);
 app.use(authRoutes);
